@@ -7,8 +7,6 @@
 
 <script>
 import PostComponent from './PostComponent.vue'
-import { ref } from 'vue'
-import getPosts from '../api/get-post'
 import getImages from '../api/get-images'
 
 export default {
@@ -63,7 +61,6 @@ export default {
         },
     },
     mounted() {
-        this.posts = ref(getPosts(10))
         window.addEventListener("scroll", this.handleScroll);
     },
     destroyed() {
