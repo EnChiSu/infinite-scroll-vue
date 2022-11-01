@@ -1,17 +1,27 @@
 <template>
     <div class="scroll__component" ref="scrollComponent">
-        <post-component v-for="(image, index) in images" :key="index" :image="image"/>
+        <PostComponent 
+            v-for="(image, index) in images" 
+            :key="index" 
+            :image="image"
+        />
+        <BackTopBtn 
+            v-if="showTopBtn"
+            @back-to-top="toTop"
+        />
         <div id="spinner" v-if="isLoading"></div>
     </div>
 </template>
 
 <script>
 import PostComponent from './PostComponent.vue'
+import BackTopBtn from './BackTopBtn.vue'
 import getImages from '../api/get-images'
 
 export default {
     components: {
 		PostComponent,
+        BackTopBtn,
 	},    
     data() {
         return {
@@ -35,6 +45,8 @@ export default {
             ],
             pages: 2,
             isLoading: false,
+            showTopBtn: false,
+            showTopBtnThreshold: 800,
         };
     },
     methods: {
@@ -58,6 +70,18 @@ export default {
                 this.loadMorePosts()
                 this.pages+=1;
             }
+            const distanceToTop = document.documentElement.scrollTop;
+            if(distanceToTop > this.showTopBtnThreshold) {
+                this.showTopBtn = true;
+            } else {
+                this.showTopBtn = false;
+            }
+        },
+        toTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         },
     },
     mounted() {
@@ -68,7 +92,7 @@ export default {
     },
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .scroll__component {
     padding: 0;
     margin: 0;
