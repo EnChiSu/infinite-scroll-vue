@@ -63,12 +63,12 @@ export default {
     font-family: 'roboto';
     background: white;
 }
-.post__title {
+.post__author__title {
     color: grey;
     padding-right: 5px;
     font-weight: bold;
 }
-.post__name {
+.post__author__name {
     color: black;
 }
 .post__icon {
