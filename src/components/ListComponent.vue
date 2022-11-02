@@ -111,7 +111,7 @@ h1 {
   margin-bottom: 20px;
   border: 5px solid rgba(255,255,255,.3);
   border-radius: 50%;
-  border-top-color: #fff;
+  border-top-color: #383838;
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
 }
