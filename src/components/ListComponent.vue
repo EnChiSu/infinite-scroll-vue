@@ -95,8 +95,10 @@ export default {
 <style scoped>
 .scroll__component {
     padding: 0;
-    margin: 0;
-    width: 100%;
+    background: white;
+    width: 70%;
+    border-radius: 10px;
+    margin: auto;
 }
 h1 {
   font: 2em 'Roboto', sans-serif;
