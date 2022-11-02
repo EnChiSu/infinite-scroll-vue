@@ -1,14 +1,18 @@
 <template>
     <div id="app">
+        <SideMenu/>
         <ListComponent/>
     </div>
 </template>
 <script>
 import ListComponent from './components/ListComponent.vue'
+import SideMenu from './components/SideMenu.vue'
+
 export default {
     name: 'App',
     components: {
-        ListComponent
+        ListComponent,
+        SideMenu,
     }
 }
 </script>
